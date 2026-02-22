@@ -11,29 +11,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 ai-short-drama/
 ├── .claude-plugin/
-│   └── plugin.json           # 插件元数据（name, version, skills, commands）
+│   ├── plugin.json           # 插件元数据
+│   └── marketplace.json      # 插件市场配置
 ├── commands/
-│   └── ai-short-drama.md     # 斜杠命令定义（/ai-short-drama）
+│   └── ai-short-drama.md     # 斜杠命令定义
 ├── skills/
 │   └── ai-short-drama/
 │       ├── SKILL.md          # 技能定义和触发条件
 │       └── references/       # 各阶段工作流参考文档
-│           ├── phase1-planning.md    # 策划阶段
-│           ├── phase2-character.md   # 角色设计
-│           ├── phase3-storyboard.md  # 分镜脚本
-│           ├── phase4-script.md      # 配音台本
-│           ├── phase5-export.md      # 导出
-│           ├── story-outline.md      # 故事大纲模板
-│           ├── character-card.md     # 角色设定卡模板
-│           ├── storyboard.md         # 分镜脚本模板
-│           └── prompt-templates.md   # 提示词模板库
+│           ├── phase1-planning.md      # 策划阶段
+│           ├── phase2-character.md     # 角色设计
+│           ├── phase3-storyboard.md    # 分镜脚本
+│           ├── phase3-fill-prompts.md  # 补充提示词 ⭐
+│           ├── phase3.5-review.md      # 分镜审核 ⭐
+│           ├── phase4-script.md        # 配音台本
+│           ├── phase5-export.md        # 导出
+│           ├── story-outline.md        # 故事大纲模板
+│           ├── character-card.md       # 角色设定卡模板
+│           ├── storyboard.md           # 分镜脚本模板
+│           └── prompt-templates.md     # 提示词模板库（含 Seedance 2.0）
+├── CLAUDE.md
 └── README.md
 ```
 
-## 工作流程（5 阶段）
+## 工作流程（7 阶段）
 
 ```
-策划 → 角色设计 → 分镜脚本 → 配音台本 → 导出
+策划 → 角色设计 → 分镜脚本 → 补充提示词 → 审核 → 配音台本 → 导出
 ```
 
 | 阶段 | 命令 | 核心输出 |
@@ -41,8 +45,26 @@ ai-short-drama/
 | 策划 | `plan` | 故事大纲、项目配置 |
 | 角色 | `character` | 角色设定卡 + 即梦AI图片提示词 |
 | 分镜 | `storyboard` | 分镜脚本 + 视频提示词 |
+| 补充 | `fill-prompts` | 补充缺失的提示词 ⭐ |
+| 审核 | `review` | 审核报告 + 修正后的提示词 ⭐ |
 | 配音 | `script` | 配音台本（台词 + 情绪标注）|
 | 导出 | `export` | 全部提示词汇总包 |
+
+## 质量保证机制
+
+### fill-prompts：提示词完整性检查
+
+- 扫描所有分镜文件
+- 识别缺失/异常的提示词
+- 根据分镜描述自动补充
+- 生成补充报告
+
+### review：分镜与提示词一致性审核
+
+- **完整性检查**：所有镜头都有提示词（优先）
+- **内容一致性**：场景、角色、动作、时间、情绪
+- **技术规范性**：运镜匹配、时长合理、格式规范
+- **连贯性**：镜头衔接、角色状态、场景连续
 
 ## 输出文件结构
 
