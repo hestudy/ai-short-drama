@@ -1,15 +1,22 @@
 {
+  "name": "ai-short-drama",
   "owner": {
     "name": "hestudy",
-    "url": "https://github.com/hestudy"
+    "email": "hestudy@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "AI短剧文字工作流插件市场"
   },
   "plugins": [
     {
       "name": "ai-short-drama",
-      "displayName": "AI短剧文字工作流",
+      "source": "./",
       "description": "在 Claude Code 中完成 AI 短剧的全部文字创作工作，输出可用于即梦AI等平台的提示词",
-      "version": "1.0.0",
-      "repository": "https://github.com/hestudy/ai-short-drama.git",
+      "author": {
+        "name": "hestudy"
+      },
+      "repository": "https://github.com/hestudy/ai-short-drama",
+      "license": "MIT",
       "keywords": [
         "ai",
         "short-drama",
@@ -21,8 +28,7 @@
         "提示词",
         "prompt"
       ],
-      "license": "MIT",
-      "categories": ["creative", "content-generation"]
+      "category": "creative"
     }
   ]
 }
