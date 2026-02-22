@@ -1,0 +1,18 @@
+{
+  "name": "ai-short-drama",
+  "version": "1.0.0",
+  "description": "AI短剧文字工作流 - 在 Claude Code 中完成 AI 短剧的全部文字创作工作",
+  "author": "hestudy",
+  "repository": "https://github.com/hestudy/ai-short-drama",
+  "keywords": [
+    "ai",
+    "short-drama",
+    "video",
+    "jimeng",
+    "即梦",
+    "短剧",
+    "剧本",
+    "提示词"
+  ],
+  "license": "MIT"
+}
