@@ -10,19 +10,29 @@
 
 ## 安装
 
-### 方式一：克隆到用户级目录
+### 方式一：插件市场安装（推荐）
+
+在 Claude Code 中运行以下命令：
 
 ```bash
-cd ~/.claude/plugins
-git clone https://github.com/hestudy/ai-short-drama.git
+# 添加插件市场
+/plugin marketplace add hestudy/ai-short-drama
+
+# 安装插件
+/plugin install ai-short-drama@ai-short-drama
 ```
 
-### 方式二：克隆到项目级目录
+### 方式二：克隆到用户级目录
+
+```bash
+git clone https://github.com/hestudy/ai-short-drama.git ~/.claude/plugins/ai-short-drama
+```
+
+### 方式三：项目级安装
 
 ```bash
 mkdir -p your-project/.claude/plugins
-cd your-project/.claude/plugins
-git clone https://github.com/hestudy/ai-short-drama.git
+git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plugins/ai-short-drama
 ```
 
 ## 使用方法
