@@ -5,10 +5,7 @@
   "author": {
     "name": "hestudy"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hestudy/ai-short-drama.git"
-  },
+  "repository": "https://github.com/hestudy/ai-short-drama",
   "keywords": [
     "ai",
     "short-drama",
