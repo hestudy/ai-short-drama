@@ -15,6 +15,7 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 /ai-short-drama plan              # 策划阶段
 /ai-short-drama character         # 角色设计
 /ai-short-drama storyboard        # 分镜脚本
+/ai-short-drama review            # 分镜审核 ⭐ 新增
 /ai-short-drama script            # 配音台本
 /ai-short-drama export            # 导出提示词
 ```
@@ -26,6 +27,7 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | 策划 | plan | 故事大纲 |
 | 角色 | character | 角色设定卡 + 外观提示词 |
 | 分镜 | storyboard | 分镜脚本 + 视频提示词 |
+| 审核 | review | 审核报告 + 修正后的提示词 ⭐ 新增 |
 | 配音 | script | 配音台本 |
 | 导出 | export | 全部提示词汇总 |
 
