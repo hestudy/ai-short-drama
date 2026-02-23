@@ -1,7 +1,7 @@
 # AI 短剧文字工作流
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/hestudy/ai-short-drama)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/hestudy/ai-short-drama)
 
 > Claude Code Plugin - 在 Claude Code 中完成 AI 短剧的全部文字创作工作
 
@@ -14,6 +14,7 @@
 - **质量词强制要求**：每条提示词必须包含质量词（高清、4K、画面稳定、无抖动）
 - **融合模式增强**：画面+配音+音频一体化生成
 - **四种提示词模式**：标准模式、融合模式、时间分段模式、单镜头模式
+- **Seedream 4.0-4.5 图片提示词专家** 🆕：支持角色图、参考图生图、多图输出
 - 整合 [awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) 最佳实践
 
 ## 安装
@@ -58,7 +59,8 @@ git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plu
 /drama-review --fix               # 审核并修正
 /drama-script --all               # 生成配音台本
 /drama-merge-voice                # ⭐ 合并旧版到融合格式
-/drama-prompt [场景] --mode fusion # ⭐ Seedance 2.0 提示词专家
+/drama-prompt [场景] --mode fusion # ⭐ Seedance 2.0 视频提示词专家
+/drama-image [描述] --mode text2img # ⭐ Seedream 4.0-4.5 图片提示词专家
 /drama-export                     # 导出提示词
 ```
 
@@ -181,19 +183,25 @@ ai-short-drama/
 │   ├── drama-review.md       # 审核
 │   ├── drama-script.md       # 配音
 │   ├── drama-merge-voice.md  # 迁移命令
-│   ├── drama-prompt.md       # ⭐ Seedance 2.0 提示词专家
+│   ├── drama-prompt.md       # ⭐ Seedance 2.0 视频提示词专家
+│   ├── drama-image.md        # ⭐ Seedream 4.0-4.5 图片提示词专家
 │   └── drama-export.md       # 导出
 ├── skills/
 │   ├── ai-short-drama/       # 主工作流 skill
 │   │   ├── SKILL.md
 │   │   └── references/
-│   └── seedance-prompts/     # ⭐ Seedance 2.0 提示词专家
+│   ├── seedance-prompts/     # ⭐ Seedance 2.0 视频提示词专家
+│   │   ├── SKILL.md
+│   │   └── references/
+│   │       ├── prompt-templates.md   # 完整提示词模板库
+│   │       ├── camera-movements.md   # 运镜参考手册
+│   │       ├── scene-types.md        # 场景类型详解
+│   │       └── quality-keywords.md   # ⭐ 质量关键词库（必读）
+│   └── seedream-prompts/     # ⭐ Seedream 4.0-4.5 图片提示词专家
 │       ├── SKILL.md
 │       └── references/
-│           ├── prompt-templates.md   # 完整提示词模板库
-│           ├── camera-movements.md   # 运镜参考手册
-│           ├── scene-types.md        # 场景类型详解
-│           └── quality-keywords.md   # ⭐ 质量关键词库（必读）
+│           ├── prompt-guidelines.md  # 提示词编写规范
+│           └── prompt-templates.md   # 提示词模板库
 └── README.md
 ```
 
@@ -383,6 +391,88 @@ Constraints: 口型同步，[视频时长]
    - 视频提示词 + 参考图 → 生成视频片段
    - 配音台本 → AI配音
 4. **后期整合**：在剪辑软件中完成最终成片
+
+## Seedream 4.0-4.5 图片提示词支持 🆕
+
+本插件已集成 Seedream 4.0-4.5 图片提示词最佳实践，支持角色图、参考图生图、多图输出等！
+
+### 核心能力
+
+| 能力 | 说明 |
+|------|------|
+| **文生图** | 文字描述直接生成高质量图像 |
+| **图生图** | 图文结合编辑（增加/删除/替换/修改） |
+| **参考图生图** | 提取参考特征，复刻风格与形象 |
+| **多图输入** | 多图联动创作，复合编辑 |
+| **多图输出** | 生成系列组图，风格统一 |
+
+### 五大通用规则
+
+1. **自然语言清晰描述**：用连贯语句写明主体+行为+环境
+2. **明确应用场景**：直接标明图像类型和用途
+3. **精准风格词**：使用具体风格关键词或参考图
+4. **文字加引号**：需要渲染的文字用双引号包裹
+5. **清晰编辑指令**：说明修改对象和具体操作，避免模糊代词
+
+### 使用 /drama-image 命令
+
+```bash
+# 文生图
+/drama-image 女孩在黄昏街道行走
+
+# 角色图片
+/drama-image --character 25岁职场女性，干练自信
+
+# 参考图生图
+/drama-image 参考图中的人物，生成羊毛毡手办 --mode ref2img
+
+# 多图输出（系列组图）
+/drama-image 生成周一到周日的自然景观壁纸 --mode multi-output
+
+# 图片编辑
+/drama-image --edit 给女孩增加耳环和项链
+
+# 优化现有提示词
+/drama-image --optimize "一个女孩撑伞走在街上"
+```
+
+### 示例：角色图片提示词
+
+```
+输入：
+/drama-image --character 25岁职场女性，干练自信
+
+输出：
+一位25岁的女性，黑色长发扎成低马尾，瓜子脸，大眼睛，
+穿着白色职业衬衫和黑色西装外套，戴着细框眼镜，
+表情严肃而自信，双手抱胸站立。
+日系职场风格，柔和侧光，高细节，面部清晰。
+```
+
+### 示例：多图输出（系列组图）
+
+```
+输入：
+/drama-image 生成周一到周日的自然景观壁纸 --mode multi-output
+
+输出：
+生成周一到周日七张自然景观手机壁纸，每张图清晰标注对应日期：
+周一：日出山海，金光万道
+周二：草原花海，蝴蝶飞舞
+周三：森林溪流，阳光斑驳
+周四：湖泊倒影，白云悠悠
+周五：沙漠日落，橙红漫天
+周六：星空银河，璀璨无垠
+周日：雪山云海，宁静致远
+风格统一，日系清新，柔和光线，9:16竖屏比例。
+```
+
+### 版本差异
+
+| 版本 | 核心优势 | 适用场景 |
+|------|----------|----------|
+| **Seedream 4.0** | 多参考图支持，系列组图生成 | 基础到进阶的多元组图创作 |
+| **Seedream 4.5** | 风格一致性、画面美学、图文响应能力强化 | 专业图像创作，风格要求高 |
 
 ## Seedance 2.0 支持
 

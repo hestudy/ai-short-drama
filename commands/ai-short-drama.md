@@ -26,6 +26,8 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 
 ## 命令列表
 
+### 项目工作流命令
+
 | 命令 | 说明 | 用法 |
 |------|------|------|
 | `/drama-new` | 创建新项目 | `/drama-new [剧名] --episodes [集数]` |
@@ -36,8 +38,14 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | `/drama-review` | 审核分镜与提示词 | `/drama-review [--fix]` |
 | `/drama-script` | 生成配音台本 | `/drama-script [集数或范围]` |
 | `/drama-merge-voice` | ⭐ 合并到融合格式 | `/drama-merge-voice [集数]` |
-| `/drama-prompt` | ⭐ Seedance 2.0 提示词专家 | `/drama-prompt [场景] --mode [standard|phased|continuous|fusion]` |
 | `/drama-export` | 导出提示词包 | `/drama-export` |
+
+### 提示词专家命令
+
+| 命令 | 说明 | 用法 |
+|------|------|------|
+| `/drama-prompt` | ⭐ Seedance 2.0 视频提示词专家 | `/drama-prompt [场景] --mode [standard|phased|continuous|fusion]` |
+| `/drama-image` | ⭐ Seedream 4.0-4.5 图片提示词专家 | `/drama-image [描述] --mode [text2img|img2img|ref2img|multi-output]` |
 
 ## 工作流程
 
@@ -97,14 +105,31 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 
 ## 提示词规范
 
+### Seedance 2.0 视频提示词
+
 > **核心发现**：Seedance 2.0 对中文提示词的支持**优于英文**！
 > - 使用中文专业术语（俯拍、跟拍、环绕拍）效果更精准
 > - 每条提示词必须包含质量词：高清、4K、画面稳定、无抖动
 
-### 质量词（必加）
-
+**质量词（必加）**：
 ```
 高清，4K，画面稳定无抖动，细节丰富，面部清晰，无变形
+```
+
+### Seedream 4.0-4.5 图片提示词
+
+> **核心原则**：简洁精准的描述远优于堆砌复杂词汇！
+
+**五大通用规则**：
+1. 用连贯语句写明主体+行为+环境
+2. 明确图像应用场景与用途
+3. 使用具体风格关键词或参考图
+4. 文字内容用双引号包裹
+5. 编辑指令要清晰明确，避免模糊代词
+
+**万能公式**：
+```
+[场景描述] + [主体特征与动作] + [视觉风格] + [光影色调]
 ```
 
 ### Seedance 2.0 融合格式
