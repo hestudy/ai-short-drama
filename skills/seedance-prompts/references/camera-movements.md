@@ -1,8 +1,10 @@
 # 运镜参考手册
 
+> **核心原则**：Seedance 2.0 对中文运镜术语的支持**优于英文**，本手册优先使用中文术语。
+
 ## 一、基础运镜类型
 
-### 推进 (Push In / Dolly In)
+### 推镜（推近/推进）
 
 **效果**：镜头向前移动，靠近主体
 
@@ -15,8 +17,8 @@
 **提示词**：
 ```
 镜头缓慢推进至面部特写
-slow push to close-up on face
-gentle dolly in to subject
+镜头快速推向人物
+推镜强调表情变化
 ```
 
 **速度变化**：
@@ -28,7 +30,7 @@ gentle dolly in to subject
 
 ---
 
-### 拉远 (Pull Back / Dolly Out)
+### 拉镜（拉远/后拉）
 
 **效果**：镜头向后移动，远离主体
 
@@ -41,13 +43,13 @@ gentle dolly in to subject
 **提示词**：
 ```
 镜头拉远展示全景
-wide pull-back reveal of massive scene
-slow dolly out to wide shot
+大范围拉远揭示宏大场景
+缓慢拉远营造孤独感
 ```
 
 ---
 
-### 环绕 (Orbit / Arc)
+### 环绕拍（环绕/旋转）
 
 **效果**：镜头围绕主体做圆周运动
 
@@ -60,8 +62,9 @@ slow dolly out to wide shot
 **提示词**：
 ```
 镜头360度环绕拍摄
-360 orbit around subject
-smooth circular camera movement
+镜头180度环绕人物
+缓慢环绕展示全貌
+快速环绕营造眩晕感
 ```
 
 **角度变化**：
@@ -74,7 +77,7 @@ smooth circular camera movement
 
 ---
 
-### 跟随 (Follow / Tracking)
+### 跟拍（跟随/追踪）
 
 **效果**：镜头跟随移动中的主体
 
@@ -86,12 +89,13 @@ smooth circular camera movement
 
 **提示词**：
 ```
-镜头跟随人物移动
-camera follows subject through scene
-tracking shot alongside character
+镜头跟拍人物移动
+侧面跟拍，保持稳定距离
+前跟拍摄人物正面
+后跟拍摄人物背影
 ```
 
-**跟随方式**：
+**跟拍方式**：
 | 方式 | 描述 |
 |------|------|
 | 前跟 | 镜头在前，面向主体 |
@@ -101,7 +105,45 @@ tracking shot alongside character
 
 ---
 
-### 升降 (Crane / Boom)
+### 俯拍（俯视/鸟瞰）
+
+**效果**：从高处向下拍摄
+
+**适用场景**：
+- 展示全貌
+- 表现渺小
+- 建立场景
+- 上帝视角
+
+**提示词**：
+```
+俯拍展示城市全貌
+高角度俯拍人物
+鸟瞰视角
+```
+
+---
+
+### 仰拍（仰视/低角度）
+
+**效果**：从低处向上拍摄
+
+**适用场景**：
+- 崇高感
+- 压迫感
+- 英雄气概
+- 权威形象
+
+**提示词**：
+```
+仰拍突出人物气势
+低角度仰拍建筑
+仰视强调威严
+```
+
+---
+
+### 升降（上升/下降）
 
 **效果**：镜头在垂直方向移动
 
@@ -114,149 +156,215 @@ tracking shot alongside character
 **提示词**：
 ```
 镜头从地面升至高空
-camera rises from ground level to aerial view
-crane shot moving upward
+镜头缓缓上升展示全景
+高空下降至人物特写
+```
+
+---
+
+### 固定镜头（静止/定拍）
+
+**效果**：镜头不动，画面稳定
+
+**适用场景**：
+- 沉稳观察
+- 对话场景
+- 正式感
+- 客观记录
+
+**提示词**：
+```
+固定镜头，画面稳定
+中景固定拍摄
+静止镜头观察
+```
+
+---
+
+### 手持镜头（晃动/纪实）
+
+**效果**：轻微晃动，模拟手持感
+
+**适用场景**：
+- 紧张氛围
+- 真实感
+- 临场感
+- 纪录片风格
+
+**提示词**：
+```
+手持镜头，轻微晃动
+纪实风格跟拍
+自然晃动增加真实感
 ```
 
 ---
 
 ## 二、组合运镜
 
-### 推+升 (Push + Rise)
+### 推+升（推进同时上升）
 
-**效果**：推进同时上升
-
-**提示词**：
 ```
 镜头推进同时缓缓上升
-push in while rising
-dolly in combined with crane up
+推镜配合上升展示全貌
 ```
 
-### 环绕+升降 (Orbit + Crane)
+### 环绕+升降（环绕同时改变高度）
 
-**效果**：环绕同时改变高度
-
-**提示词**：
 ```
 镜头环绕上升
-orbit while rising
-360 degree spiral movement
+360度螺旋上升拍摄
 ```
 
-### 跟随+环绕 (Follow + Orbit)
+### 跟拍+环绕（跟拍同时环绕）
 
-**效果**：跟随主体同时环绕
-
-**提示词**：
 ```
-镜头边跟随边环绕
-tracking shot with orbital movement
+镜头边跟拍边环绕
+跟拍配合环绕展示
+```
+
+### 推+俯（推进同时俯拍）
+
+```
+俯拍推进至人物特写
+高角度推镜
 ```
 
 ---
 
-## 三、情绪运镜
+## 三、情绪运镜对照表
 
-### 紧张感
-
-```
-handheld camera with subtle shake
-fast push to close-up
-quick zoom in
-sudden rack focus
-```
-
-### 震撼感
-
-```
-wide pull-back reveal
-epic crane shot rising
-dramatic dolly out
-```
-
-### 亲密感
-
-```
-slow gentle push to close-up
-soft follow shot
-tender tracking movement
-```
-
-### 史诗感
-
-```
-360 orbit, rising crane shot, wide angle
-sweeping aerial movement
-grand helicopter-style shot
-```
-
-### 悬疑感
-
-```
-static shot with sudden movement
-slow creeping dolly
-eerie tracking shot
-```
+| 情绪 | 运镜方式 | 提示词示例 |
+|------|----------|------------|
+| 紧张 | 手持晃动 + 快速推近 | 手持镜头轻微晃动，快速推近面部特写 |
+| 震撼 | 大范围拉远揭示 | 大范围拉远，展示宏大场景 |
+| 亲密 | 缓慢推进聚焦 | 缓慢推进，聚焦面部微表情 |
+| 史诗 | 环绕 + 升降 + 广角 | 360度环绕，配合上升，广角镜头 |
+| 悬疑 | 固定 + 突然变焦 | 固定镜头，突然推近或变焦 |
+| 浪漫 | 柔和跟拍 + 浅景深 | 柔和跟拍，浅景深虚化背景 |
+| 悲伤 | 缓慢推近 + 固定 | 缓慢推近面部，定格表情 |
+| 愤怒 | 手持 + 快速推拉 | 手持晃动，快速推近特写 |
+| 孤独 | 远景 + 缓慢拉远 | 远景，缓慢拉远，人物变小 |
+| 欢快 | 活泼跟拍 + 环绕 | 活泼跟拍，轻快环绕 |
 
 ---
 
 ## 四、特殊运镜
 
-### 手持感 (Handheld)
+### 斯坦尼康（稳定跟拍）
 
 ```
-handheld camera, slight shake
-documentary style movement
-organic, naturalistic feel
+稳定跟拍，画面流畅
+斯坦尼康效果
+平滑移动镜头
 ```
 
-### 斯坦尼康 (Steadicam)
+### 滑轨（横向平移）
 
 ```
-smooth steadicam movement
-gliding camera motion
-floating camera feel
+滑轨横向平移
+平滑侧移镜头
+精确横向移动
 ```
 
-### 滑轨 (Slider)
+### 无人机（航拍）
 
 ```
-smooth slider movement
-precise lateral tracking
-clean horizontal dolly
+航拍俯瞰
+无人机视角
+高空俯视
 ```
 
-### 无人机 (Drone)
+### 变焦（焦距变化）
 
 ```
-drone shot, aerial view
-bird's eye perspective
-sweeping landscape flyover
+变焦推近
+焦点转移
+背景虚化变化
 ```
 
 ---
 
 ## 五、运镜速度参考
 
-| 速度 | 英文描述 | 适用场景 |
-|------|----------|----------|
-| 极慢 | very slow, glacial | 沉思、悲伤、回忆 |
-| 慢速 | slow, gentle | 温情、叙事、日常 |
-| 中速 | medium, moderate | 正常叙事、对话 |
-| 快速 | fast, quick | 动作、紧张、追逐 |
-| 极快 | very fast, rapid | 冲击、震惊、高潮 |
+| 速度 | 描述 | 适用场景 |
+|------|------|----------|
+| 极慢 | 非常缓慢，近乎静止 | 沉思、悲伤、回忆 |
+| 慢速 | 缓慢平稳 | 温情、叙事、日常 |
+| 中速 | 适中节奏 | 正常叙事、对话 |
+| 快速 | 明显移动 | 动作、紧张、追逐 |
+| 极快 | 快速移动 | 冲击、震惊、高潮 |
 
 ---
 
 ## 六、景别参考
 
-| 景别 | 英文 | 描述 |
-|------|------|------|
-| 大远景 | extreme wide shot | 展示环境全貌 |
-| 远景 | wide shot / long shot | 展示场景与人物关系 |
-| 全景 | full shot | 人物全身 |
-| 中景 | medium shot | 人物膝盖以上 |
-| 中近景 | medium close-up | 人物胸部以上 |
-| 近景 | close-up | 人物面部 |
-| 大特写 | extreme close-up | 眼睛、嘴唇等局部 |
+| 景别 | 描述 | 适用场景 |
+|------|------|----------|
+| 大远景 | 展示环境全貌 | 场景建立、史诗感 |
+| 远景 | 展示场景与人物关系 | 人物与环境互动 |
+| 全景 | 人物全身 | 动作展示、走路 |
+| 中景 | 人物膝盖以上 | 对话、日常、叙事 |
+| 近景 | 人物胸部以上 | 情感表达、互动 |
+| 特写 | 人物面部 | 情绪细节、重要时刻 |
+| 大特写 | 眼睛、嘴唇等局部 | 极强情绪冲击、细节强调 |
+
+---
+
+## 七、运镜选择指南
+
+### 按场景类型选择
+
+| 场景类型 | 推荐运镜 |
+|----------|----------|
+| 日常对话 | 固定镜头、缓慢推镜 |
+| 情感戏 | 缓慢推近、特写 |
+| 动作戏 | 手持跟拍、快速剪辑 |
+| 追逐戏 | 跟拍、环绕、穿越 |
+| 展示戏 | 环绕、推镜、拉镜 |
+| 史诗场面 | 升降、航拍、大范围拉远 |
+
+### 按情绪类型选择
+
+| 情绪类型 | 推荐运镜 |
+|----------|----------|
+| 温馨 | 缓慢推镜、柔和跟拍 |
+| 紧张 | 手持晃动、快速推近 |
+| 悲伤 | 缓慢推近、固定特写 |
+| 喜悦 | 活泼跟拍、轻快环绕 |
+| 愤怒 | 手持晃动、快速推拉 |
+| 恐惧 | 手持晃动、不稳定构图 |
+
+---
+
+## 八、常见运镜组合
+
+### 开场建立
+
+```
+大远景 → 推进至中景 → 跟拍进入场景
+```
+
+### 情感高潮
+
+```
+中景 → 缓慢推近 → 特写定格
+```
+
+### 动作爆发
+
+```
+手持跟拍 → 环绕 → 慢动作特写
+```
+
+### 结尾收束
+
+```
+中景 → 缓慢拉远 → 远景定格
+```
+
+### 揭示真相
+
+```
+固定镜头 → 突然推近 → 特写表情
+```

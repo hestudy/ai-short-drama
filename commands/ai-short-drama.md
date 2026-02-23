@@ -36,7 +36,7 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | `/drama-review` | 审核分镜与提示词 | `/drama-review [--fix]` |
 | `/drama-script` | 生成配音台本 | `/drama-script [集数或范围]` |
 | `/drama-merge-voice` | ⭐ 合并到融合格式 | `/drama-merge-voice [集数]` |
-| `/drama-prompt` | 🆕 提示词生成器（独立使用） | `/drama-prompt [场景] --mode [模式]` |
+| `/drama-prompt` | ⭐ Seedance 2.0 提示词专家 | `/drama-prompt [场景] --mode [standard|phased|continuous|fusion]` |
 | `/drama-export` | 导出提示词包 | `/drama-export` |
 
 ## 工作流程
@@ -96,6 +96,16 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 > 💡 遇到限流时会自动启用指数退避重试机制
 
 ## 提示词规范
+
+> **核心发现**：Seedance 2.0 对中文提示词的支持**优于英文**！
+> - 使用中文专业术语（俯拍、跟拍、环绕拍）效果更精准
+> - 每条提示词必须包含质量词：高清、4K、画面稳定、无抖动
+
+### 质量词（必加）
+
+```
+高清，4K，画面稳定无抖动，细节丰富，面部清晰，无变形
+```
 
 ### Seedance 2.0 融合格式
 ```
