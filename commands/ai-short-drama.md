@@ -36,6 +36,7 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | `/drama-review` | 审核分镜与提示词 | `/drama-review [--fix]` |
 | `/drama-script` | 生成配音台本 | `/drama-script [集数或范围]` |
 | `/drama-merge-voice` | ⭐ 合并到融合格式 | `/drama-merge-voice [集数]` |
+| `/drama-prompt` | 🆕 提示词生成器（独立使用） | `/drama-prompt [场景] --mode [模式]` |
 | `/drama-export` | 导出提示词包 | `/drama-export` |
 
 ## 工作流程

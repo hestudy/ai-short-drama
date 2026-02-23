@@ -1,7 +1,7 @@
 ---
 name: ai-short-drama
 description: This skill should be used when the user asks to "create AI short drama", "write short drama", "generate video prompts", "即梦短剧", "AI短剧", "写短剧", "生成提示词", "短剧剧本", or discusses short video drama production workflow. Provides complete workflow from planning to export for AI-generated short dramas.
-version: 1.2.1
+version: 1.4.0
 license: MIT
 ---
 
@@ -33,6 +33,7 @@ license: MIT
 | `/drama-review` | 审核分镜与提示词一致性 |
 | `/drama-script` | 生成配音台本（传统模式需要） |
 | `/drama-merge-voice` | ⭐ 将旧版分镜+配音合并为融合格式 |
+| `/drama-prompt` | 🆕 提示词生成器（独立使用） |
 | `/drama-export` | 导出全部提示词包 |
 
 ## 工作流程
@@ -194,3 +195,10 @@ Constraints: [约束条件]
 - `phase1-planning.md` ~ `phase5-export.md` - 各阶段工作流
 - `phase3-fill-prompts.md` - 补充缺失提示词工作流
 - `phase3.5-review.md` - 分镜与提示词审核工作流
+
+## 关联技能
+
+- **seedance-prompts** - Seedance 2.0 视频提示词专家
+  - 独立使用 `/drama-prompt` 生成和优化提示词
+  - 支持标准模式、时间分段模式、单镜头模式
+  - 详见 `skills/seedance-prompts/SKILL.md`
