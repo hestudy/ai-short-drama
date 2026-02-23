@@ -1,6 +1,6 @@
 {
   "name": "ai-short-drama",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AI短剧文字工作流 - 在 Claude Code 中完成 AI 短剧的全部文字创作工作，输出可用于即梦AI等平台的提示词",
   "author": {
     "name": "hestudy"
