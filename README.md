@@ -1,12 +1,18 @@
 # AI 短剧文字工作流
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](https://github.com/hestudy/ai-short-drama)
 
 > Claude Code Plugin - 在 Claude Code 中完成 AI 短剧的全部文字创作工作
 
 ## 简介
 
 这是一个 Claude Code 插件，用于系统化地完成 AI 短剧的文字创作工作。生成的提示词和台本可直接用于即梦AI等平台进行视频制作。
+
+**🆕 v1.4.0 新增**：
+- 独立的 **Seedance 2.0 提示词专家** skill
+- `/drama-prompt` 命令：支持时间分段模式、单镜头模式
+- 整合 [awesome-seedance-2-prompts](https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts) 优秀提示词模式
 
 ## 安装
 
@@ -50,6 +56,7 @@ git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plu
 /drama-review --fix               # 审核并修正
 /drama-script --all               # 生成配音台本
 /drama-merge-voice                # ⭐ 合并旧版到融合格式
+/drama-prompt [场景] --mode phased # 🆕 独立生成提示词
 /drama-export                     # 导出提示词
 ```
 
@@ -171,15 +178,80 @@ ai-short-drama/
 │   ├── drama-fill-prompts.md # 补充提示词
 │   ├── drama-review.md       # 审核
 │   ├── drama-script.md       # 配音
+│   ├── drama-merge-voice.md  # 迁移命令
+│   ├── drama-prompt.md       # 🆕 提示词生成器
 │   └── drama-export.md       # 导出
 ├── skills/
-│   └── ai-short-drama/
-│       ├── SKILL.md          # 技能定义
-│       └── references/       # 参考文档
+│   ├── ai-short-drama/       # 主工作流 skill
+│   │   ├── SKILL.md
+│   │   └── references/
+│   └── seedance-prompts/     # 🆕 提示词专家 skill
+│       ├── SKILL.md
+│       └── references/
+│           ├── prompt-templates.md   # 完整提示词模板库
+│           ├── camera-movements.md   # 运镜参考手册
+│           └── scene-types.md        # 场景类型详解
 └── README.md
 ```
 
 ## 提示词示例
+
+### 提示词模式 🆕
+
+本插件支持三种提示词模式：
+
+| 模式 | 说明 | 适用场景 |
+|------|------|----------|
+| **标准模式** | Subject/Action/Camera/Style 结构 | 对话、日常、情感场景 |
+| **时间分段模式** | 15秒内精确控制多个阶段 | 穿越、变身、动作爆发 |
+| **单镜头模式** | 一镜到底的长镜头 | 追逐、跑酷、运动场景 |
+
+### 使用 /drama-prompt 命令
+
+```bash
+# 标准模式（默认）
+/drama-prompt 女孩在黄昏街道行走
+
+# 时间分段模式
+/drama-prompt 女孩穿越到古代 --mode phased
+
+# 单镜头模式
+/drama-prompt 摩托车穿越村庄追逐 --mode continuous
+
+# 优化现有提示词
+/drama-prompt --optimize "一个人在跑步"
+```
+
+### 时间分段模式示例
+
+适用于需要在15秒内完成多个动作阶段的场景：
+
+```
+15秒，中国古装短剧风格，电影画质
+
+0-3秒：现代都市夜景，女孩站在天桥上看手机，突然脚下一滑
+镜头：中景，平视，轻微晃动
+
+3-8秒：女孩失重坠落，身体旋转，周围景物扭曲，光线拖尾
+镜头：环绕跟随，快速旋转
+
+8-15秒：画面稳定，女孩落在古代宫殿花园，樱花飞舞
+镜头：仰拍全景推进至中景
+
+音效：都市车流声 → 坠落风声 → 古琴轻响
+限制：无模糊，人物面部清晰
+```
+
+### 单镜头模式示例
+
+适用于展示运动连贯性的长镜头：
+
+```
+Single continuous shot, motorcycle chase through narrow streets of a Mediterranean village,
+camera weaves through hanging laundry and market stalls,
+rider barely dodges obstacles,
+final reveal opens to massive cliff edge overlooking infinite ocean at golden hour
+```
 
 ### 通用视频提示词结构
 ```
