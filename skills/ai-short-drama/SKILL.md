@@ -1,7 +1,7 @@
 ---
 name: ai-short-drama
 description: This skill should be used when the user asks to "create AI short drama", "write short drama", "generate video prompts", "即梦短剧", "AI短剧", "写短剧", "生成提示词", "短剧剧本", or discusses short video drama production workflow. Provides complete workflow from planning to export for AI-generated short dramas.
-version: 1.0.0
+version: 1.1.0
 license: MIT
 ---
 
@@ -17,44 +17,59 @@ license: MIT
 - "帮我写剧本"、"视频提示词"
 - 讨论短剧制作相关话题
 
+## 命令列表
+
+所有命令都是独立的斜杠命令：
+
+| 命令 | 说明 |
+|------|------|
+| `/drama-new` | 创建新项目 |
+| `/drama-plan` | 策划故事大纲 |
+| `/drama-character` | 设计角色 + 生成外观提示词 |
+| `/drama-storyboard` | 生成分镜脚本 + 视频提示词 |
+| `/drama-fill-prompts` | 检查并补充缺失的提示词 |
+| `/drama-review` | 审核分镜与提示词一致性 |
+| `/drama-script` | 生成配音台本 |
+| `/drama-export` | 导出全部提示词包 |
+
 ## 工作流程
 
 ```
-策划 → 角色设计 → 分镜脚本 → 【补充提示词】 → 【审核】 → 配音台本 → 导出
+/drama-new → /drama-plan → /drama-character → /drama-storyboard
+                                                      ↓
+/drama-export ← /drama-script ← /drama-review ← /drama-fill-prompts
 ```
 
 ## 执行步骤
 
-### 阶段一：策划
+### 阶段一：策划 (`/drama-plan`)
 1. 收集需求（剧名、类型、集数、受众）
 2. 生成故事大纲
 3. 确定视觉风格
 
 **输出**: `01_故事大纲.md`
 
-### 阶段二：角色设计
+### 阶段二：角色设计 (`/drama-character`)
 1. 确认角色清单
 2. 创建角色设定卡
 3. 生成即梦AI图片提示词
 
 **输出**: `02_角色设定/` + 角色外观提示词
 
-### 阶段三：分镜脚本
+### 阶段三：分镜脚本 (`/drama-storyboard`)
 1. 确定分镜策略
 2. 逐集拆分镜头
 3. 为每个镜头生成即梦AI视频提示词
 
 **输出**: `03_分镜脚本/` + `04_视频提示词/`
 
-### 阶段三·补：补充提示词 ⭐ 新增
+### 阶段三·补：补充提示词 (`/drama-fill-prompts`)
 1. 扫描所有分镜文件
 2. 识别缺失/异常的提示词
 3. 根据分镜描述补充提示词
 4. 生成补充报告
 
-**触发命令**: `/ai-short-drama fill-prompts`
-
-### 阶段三·五：分镜审核
+### 阶段三·五：分镜审核 (`/drama-review`)
 1. 提示词完整性检查（优先）
 2. 逐镜头对比分镜与提示词的一致性
 3. 检查场景、角色、动作、情绪、运镜是否匹配
@@ -63,13 +78,13 @@ license: MIT
 
 **检查维度**：完整性、内容一致性、技术规范性、连贯性
 
-### 阶段四：配音台本
+### 阶段四：配音台本 (`/drama-script`)
 1. 确认配音风格
 2. 生成配音台本
 
 **输出**: `05_配音台本/`
 
-### 阶段五：导出
+### 阶段五：导出 (`/drama-export`)
 1. 汇总所有提示词
 2. 生成制作清单
 

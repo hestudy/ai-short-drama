@@ -14,7 +14,15 @@ ai-short-drama/
 │   ├── plugin.json           # 插件元数据
 │   └── marketplace.json      # 插件市场配置
 ├── commands/
-│   └── ai-short-drama.md     # 斜杠命令定义
+│   ├── ai-short-drama.md     # 工作流概览命令
+│   ├── drama-new.md          # 创建新项目
+│   ├── drama-plan.md         # 策划阶段
+│   ├── drama-character.md    # 角色设计
+│   ├── drama-storyboard.md   # 分镜脚本
+│   ├── drama-fill-prompts.md # 补充提示词
+│   ├── drama-review.md       # 分镜审核
+│   ├── drama-script.md       # 配音台本
+│   └── drama-export.md       # 导出
 ├── skills/
 │   └── ai-short-drama/
 │       ├── SKILL.md          # 技能定义和触发条件
@@ -22,33 +30,40 @@ ai-short-drama/
 │           ├── phase1-planning.md      # 策划阶段
 │           ├── phase2-character.md     # 角色设计
 │           ├── phase3-storyboard.md    # 分镜脚本
-│           ├── phase3-fill-prompts.md  # 补充提示词 ⭐
-│           ├── phase3.5-review.md      # 分镜审核 ⭐
+│           ├── phase3-fill-prompts.md  # 补充提示词
+│           ├── phase3.5-review.md      # 分镜审核
 │           ├── phase4-script.md        # 配音台本
 │           ├── phase5-export.md        # 导出
 │           ├── story-outline.md        # 故事大纲模板
 │           ├── character-card.md       # 角色设定卡模板
 │           ├── storyboard.md           # 分镜脚本模板
-│           └── prompt-templates.md     # 提示词模板库（含 Seedance 2.0）
+│           └── prompt-templates.md     # 提示词模板库
 ├── CLAUDE.md
 └── README.md
 ```
 
-## 工作流程（7 阶段）
+## 命令列表
+
+所有命令都是独立的斜杠命令，可直接使用：
+
+| 命令 | 说明 | 用法 |
+|------|------|------|
+| `/drama-new` | 创建新项目 | `/drama-new [剧名] --episodes [集数]` |
+| `/drama-plan` | 策划故事大纲 | `/drama-plan` |
+| `/drama-character` | 设计角色 + 生成外观提示词 | `/drama-character [--all]` |
+| `/drama-storyboard` | 生成分镜脚本 + 视频提示词 | `/drama-storyboard [集数]` |
+| `/drama-fill-prompts` | 检查并补充缺失的提示词 | `/drama-fill-prompts` |
+| `/drama-review` | 审核分镜与提示词一致性 | `/drama-review [--fix]` |
+| `/drama-script` | 生成配音台本 | `/drama-script [集数]` |
+| `/drama-export` | 导出全部提示词包 | `/drama-export` |
+
+## 工作流程
 
 ```
-策划 → 角色设计 → 分镜脚本 → 补充提示词 → 审核 → 配音台本 → 导出
+/drama-new → /drama-plan → /drama-character → /drama-storyboard
+                                                      ↓
+/drama-export ← /drama-script ← /drama-review ← /drama-fill-prompts
 ```
-
-| 阶段 | 命令 | 核心输出 |
-|------|------|----------|
-| 策划 | `plan` | 故事大纲、项目配置 |
-| 角色 | `character` | 角色设定卡 + 即梦AI图片提示词 |
-| 分镜 | `storyboard` | 分镜脚本 + 视频提示词 |
-| 补充 | `fill-prompts` | 补充缺失的提示词 ⭐ |
-| 审核 | `review` | 审核报告 + 修正后的提示词 ⭐ |
-| 配音 | `script` | 配音台本（台词 + 情绪标注）|
-| 导出 | `export` | 全部提示词汇总包 |
 
 ## 质量保证机制
 
@@ -114,7 +129,8 @@ ai-short-drama/
 
 1. 在 `skills/ai-short-drama/references/` 创建 `phaseN-xxx.md`
 2. 更新 `SKILL.md` 中的执行步骤
-3. 更新 `commands/ai-short-drama.md` 的命令列表
+3. 在 `commands/` 目录创建新的 `drama-xxx.md` 命令文件
+4. 更新 `commands/ai-short-drama.md` 的命令列表
 
 ### 添加新的提示词模板
 

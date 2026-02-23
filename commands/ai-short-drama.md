@@ -1,100 +1,79 @@
 ---
-description: AI短剧文字工作流 - 完成策划、角色、分镜、提示词、配音台本创作
-argument-hint: [phase] [options]
+description: AI短剧工作流概览 - 显示完整命令列表和工作流程说明
+argument-hint:
 allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 ---
 
-# AI短剧文字工作流
+# AI短剧工作流概览
 
-启动AI短剧文字创作工作流。
+显示完整的命令列表和工作流程说明。
 
-## 用法
+## 快速开始
 
 ```
-/ai-short-drama new [剧名] --episodes [集数]
-/ai-short-drama plan              # 策划阶段
-/ai-short-drama character         # 角色设计
-/ai-short-drama storyboard        # 分镜脚本
-/ai-short-drama fill-prompts      # 补充缺失的提示词 ⭐ 新增
-/ai-short-drama review            # 分镜审核
-/ai-short-drama script            # 配音台本
-/ai-short-drama export            # 导出提示词
+/drama-new "我的短剧" --episodes 5    # 创建项目
+/drama-plan                           # 策划故事
+/drama-character                      # 设计角色
+/drama-storyboard --all               # 生成全部分镜
+/drama-fill-prompts                   # 补充缺失提示词
+/drama-review --fix                   # 审核并修正
+/drama-script --all                   # 生成配音台本
+/drama-export                         # 导出提示词
 ```
 
-## 阶段说明
+## 命令列表
 
-| 阶段 | 命令 | 产出 |
+| 命令 | 说明 | 用法 |
 |------|------|------|
-| 策划 | plan | 故事大纲 |
-| 角色 | character | 角色设定卡 + 外观提示词 |
-| 分镜 | storyboard | 分镜脚本 + 视频提示词 |
-| 补充 | fill-prompts | 补充缺失的提示词 ⭐ 新增 |
-| 审核 | review | 审核报告 + 修正后的提示词 |
-| 配音 | script | 配音台本 |
-| 导出 | export | 全部提示词汇总 |
+| `/drama-new` | 创建新项目 | `/drama-new [剧名] --episodes [集数]` |
+| `/drama-plan` | 策划故事大纲 | `/drama-plan` |
+| `/drama-character` | 设计角色 | `/drama-character [--all]` |
+| `/drama-storyboard` | 生成分镜脚本 | `/drama-storyboard [集数或范围]` |
+| `/drama-fill-prompts` | 补充缺失提示词 | `/drama-fill-prompts` |
+| `/drama-review` | 审核分镜与提示词 | `/drama-review [--fix]` |
+| `/drama-script` | 生成配音台本 | `/drama-script [集数或范围]` |
+| `/drama-export` | 导出提示词包 | `/drama-export` |
 
-## fill-prompts 命令详解
-
-专门用于检查和补充分镜中缺失的AI提示词。
-
-### 执行流程
-
-1. **扫描分镜文件**：读取所有分镜脚本
-2. **识别缺失项**：找出没有提示词或提示词不完整的镜头
-3. **生成缺失报告**：列出需要补充的镜头清单
-4. **逐个补充**：根据分镜描述生成对应的提示词
-5. **更新文件**：将补充的提示词写入分镜文件
-
-### 输出示例
-
-```markdown
-# 提示词补充报告
-
-## 扫描结果
-- 扫描文件数：3 集
-- 总镜头数：45 个
-- 缺失提示词：5 个
-
-## 需补充清单
-| 集数 | 镜头 | 原因 |
-|------|------|------|
-| 第1集 | S01_C05 | 提示词为空 |
-| 第2集 | S02_C03 | 缺少运镜描述 |
-| 第2集 | S02_C08 | 提示词为空 |
-| 第3集 | S03_C01 | 提示词过短 |
-| 第3集 | S03_C11 | 提示词为空 |
-
-## 补充完成
-✅ 已为 5 个镜头补充提示词
-```
-
-### 使用场景
-
-- 分镜生成后发现部分镜头缺少提示词
-- 导出前进行完整性检查
-- 审核前确保所有提示词完整
-
-## 示例
+## 工作流程
 
 ```
-/ai-short-drama new "时空快递员" --episodes 10
-/ai-short-drama plan
-/ai-short-drama storyboard
-/ai-short-drama fill-prompts      # 检查并补充缺失提示词
-/ai-short-drama review
-/ai-short-drama export
+┌──────────┐   ┌──────────┐   ┌───────────┐   ┌───────────────┐
+│ drama-new │ → │drama-plan│ → │drama-char │ → │drama-storyboard│
+└──────────┘   └──────────┘   └───────────┘   └───────┬───────┘
+                                                      │
+      ┌───────────────────────────────────────────────┘
+      ↓
+┌─────────────────┐   ┌─────────────┐   ┌──────────────┐   ┌──────────────┐
+│drama-fill-prompts│ → │drama-review │ → │drama-script  │ → │drama-export  │
+└─────────────────┘   └─────────────┘   └──────────────┘   └──────────────┘
 ```
 
-## 工作流
+## 各阶段产出
 
-按照以下顺序执行：
+| 阶段 | 命令 | 核心产出 |
+|------|------|----------|
+| 创建 | `/drama-new` | 项目目录结构 + 配置文件 |
+| 策划 | `/drama-plan` | `01_故事大纲.md` |
+| 角色 | `/drama-character` | `02_角色设定/` + 外观提示词 |
+| 分镜 | `/drama-storyboard` | `03_分镜脚本/` + `04_视频提示词/` |
+| 补充 | `/drama-fill-prompts` | 补充报告 + 完整提示词 |
+| 审核 | `/drama-review` | 审核报告 + 修正后的提示词 |
+| 配音 | `/drama-script` | `05_配音台本/` |
+| 导出 | `/drama-export` | `99_导出包/` |
 
-1. **策划阶段**：生成故事大纲，确定核心概念和剧情走向
-2. **角色设计**：创建角色卡，生成即梦AI外观提示词
-3. **分镜脚本**：拆解每集为具体镜头，生成视频提示词
-4. **补充提示词**：检查并补充缺失的提示词（可选但推荐）
-5. **分镜审核**：审核分镜与提示词一致性
-6. **配音台本**：生成配音文本，标注情绪和语速
-7. **导出**：打包所有可直接使用的内容
+## 提示词规范
 
-输出物可直接复制到即梦AI使用。
+### 视频提示词公式
+```
+[场景描述] + [主体特征与动作] + [视觉风格] + [情绪或氛围] + [镜头语言]
+```
+
+### 角色图片提示词公式
+```
+[人物外貌] + [服装描述] + [表情姿态] + [风格] + [光影]
+```
+
+## 更多帮助
+
+- 输入 `/drama-new` 开始创建你的第一个短剧项目
+- 每个命令都支持 `--help` 查看详细用法

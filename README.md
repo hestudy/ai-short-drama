@@ -37,18 +37,24 @@ git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plu
 
 ## 使用方法
 
-### 命令方式
+### 独立命令（推荐）
+
+每个阶段都是独立的斜杠命令，带有清晰的描述：
 
 ```
-/ai-short-drama new "剧名" --episodes 10
-/ai-short-drama plan              # 策划阶段
-/ai-short-drama character         # 角色设计
-/ai-short-drama storyboard        # 分镜脚本
-/ai-short-drama fill-prompts      # 补充缺失提示词 ⭐ 新增
-/ai-short-drama review            # 分镜审核
-/ai-short-drama script            # 配音台本
-/ai-short-drama export            # 导出提示词
+/drama-new "剧名" --episodes 10   # 创建新项目
+/drama-plan                       # 策划故事大纲
+/drama-character                  # 设计角色
+/drama-storyboard --all           # 生成分镜脚本
+/drama-fill-prompts               # 补充缺失提示词
+/drama-review --fix               # 审核并修正
+/drama-script --all               # 生成配音台本
+/drama-export                     # 导出提示词
 ```
+
+### 工作流概览
+
+输入 `/ai-short-drama` 可查看完整的命令列表和工作流程说明。
 
 ### 自然语言触发
 
@@ -60,27 +66,21 @@ git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plu
 ## 工作流程
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                          Claude Code 文字工作流                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  阶段一     阶段二     阶段三      阶段3补     阶段3.5     阶段四    阶段五  │
-│  ┌─────┐  ┌─────┐  ┌─────┐    ┌─────┐   ┌─────┐   ┌─────┐  ┌─────┐        │
-│  │策划 │─▶│角色 │─▶│分镜 │ ─▶ │补充 │ ─▶│审核 │ ─▶│配音 │─▶│导出 │        │
-│  │     │  │设计 │  │脚本 │    │提示词│   │     │   │台本 │  │     │        │
-│  └─────┘  └─────┘  └─────┘    └─────┘   └─────┘   └─────┘  └─────┘        │
-│     │        │        │          │         │         │        │           │
-│     ▼        ▼        ▼          ▼         ▼         ▼        ▼           │
-│  故事大纲 角色设定卡 分镜脚本  补充报告  审核报告  配音台本 提示词包       │
-│           角色提示词 视频提示词          修正提示词          配音文本       │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                   │
-                                   ▼
-                         ┌─────────────────┐
-                         │ 复制到即梦AI    │
-                         │ 进行视频制作    │
-                         └─────────────────┘
+┌───────────┐   ┌───────────┐   ┌───────────────┐   ┌───────────────┐
+│ drama-new │ → │ drama-plan│ → │drama-character│ → │drama-storyboard│
+└───────────┘   └───────────┘   └───────────────┘   └───────┬───────┘
+                                                        │
+      ┌─────────────────────────────────────────────────┘
+      ↓
+┌─────────────────┐   ┌─────────────┐   ┌──────────────┐   ┌──────────────┐
+│drama-fill-prompts│ → │drama-review │ → │drama-script  │ → │drama-export  │
+└─────────────────┘   └─────────────┘   └──────────────┘   └──────────────┘
+                                                              │
+                                                              ↓
+                                                    ┌─────────────────┐
+                                                    │ 复制到即梦AI    │
+                                                    │ 进行视频制作    │
+                                                    └─────────────────┘
 ```
 
 ## 输出物清单
@@ -103,7 +103,7 @@ git clone https://github.com/hestudy/ai-short-drama.git your-project/.claude/plu
 检查并补充分镜中缺失或不完整的AI提示词：
 
 ```bash
-/ai-short-drama fill-prompts
+/drama-fill-prompts
 ```
 
 **执行内容：**
@@ -138,16 +138,19 @@ ai-short-drama/
 ├── .claude-plugin/
 │   └── plugin.json           # 插件元数据
 ├── commands/
-│   └── ai-short-drama.md     # 斜杠命令
+│   ├── ai-short-drama.md     # 工作流概览
+│   ├── drama-new.md          # 创建项目
+│   ├── drama-plan.md         # 策划
+│   ├── drama-character.md    # 角色
+│   ├── drama-storyboard.md   # 分镜
+│   ├── drama-fill-prompts.md # 补充提示词
+│   ├── drama-review.md       # 审核
+│   ├── drama-script.md       # 配音
+│   └── drama-export.md       # 导出
 ├── skills/
 │   └── ai-short-drama/
 │       ├── SKILL.md          # 技能定义
 │       └── references/       # 参考文档
-│           ├── story-outline.md
-│           ├── character-card.md
-│           ├── storyboard.md
-│           ├── prompt-templates.md
-│           └── phase*.md
 └── README.md
 ```
 
