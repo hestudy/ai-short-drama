@@ -1,7 +1,7 @@
 ---
 name: ai-short-drama
 description: This skill should be used when the user asks to "create AI short drama", "write short drama", "generate video prompts", "即梦短剧", "AI短剧", "写短剧", "生成提示词", "短剧剧本", or discusses short video drama production workflow. Provides complete workflow from planning to export for AI-generated short dramas.
-version: 1.2.0
+version: 1.2.1
 license: MIT
 ---
 
