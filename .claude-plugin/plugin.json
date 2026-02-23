@@ -1,7 +1,7 @@
 {
   "name": "ai-short-drama",
-  "version": "2.1.0",
-  "description": "AI短剧文字工作流 - 支持 Seedance 2.0 视频提示词 + Seedream 4.0-4.5 图片提示词",
+  "version": "2.2.0",
+  "description": "AI短剧文字工作流 v2.0 - 支持角色+场景双锚点一致性控制，集成 Seedance 2.0 视频提示词 + Seedream 4.0-4.5 图片提示词",
   "author": {
     "name": "hestudy"
   },
@@ -17,7 +17,10 @@
     "提示词",
     "prompt",
     "seedance",
-    "seedream"
+    "seedream",
+    "scene",
+    "character",
+    "一致性控制"
   ],
   "license": "MIT",
   "skills": ["./skills/ai-short-drama", "./skills/seedance-prompts", "./skills/seedream-prompts"],
