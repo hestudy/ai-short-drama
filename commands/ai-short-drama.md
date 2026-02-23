@@ -8,18 +8,21 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 
 显示完整的命令列表和工作流程说明。
 
+> 💡 **Seedance 2.0 融合模式**：支持在提示词中直接融合配音信息，一键生成带配音的视频！
+
 ## 快速开始
 
 ```
 /drama-new "我的短剧" --episodes 5    # 创建项目
 /drama-plan                           # 策划故事
 /drama-character                      # 设计角色
-/drama-storyboard --all               # 生成全部分镜
+/drama-storyboard --all               # 生成全部分镜（选融合模式）
 /drama-fill-prompts                   # 补充缺失提示词
 /drama-review --fix                   # 审核并修正
-/drama-script --all                   # 生成配音台本
-/drama-export                         # 导出提示词
+/drama-export                         # 导出提示词（融合格式）
 ```
+
+> 融合模式下可跳过 `/drama-script`，配音信息已融合到提示词中
 
 ## 命令列表
 
@@ -32,10 +35,25 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | `/drama-fill-prompts` | 补充缺失提示词 | `/drama-fill-prompts` |
 | `/drama-review` | 审核分镜与提示词 | `/drama-review [--fix]` |
 | `/drama-script` | 生成配音台本 | `/drama-script [集数或范围]` |
+| `/drama-merge-voice` | ⭐ 合并到融合格式 | `/drama-merge-voice [集数]` |
 | `/drama-export` | 导出提示词包 | `/drama-export` |
 
 ## 工作流程
 
+### 融合模式（推荐）⭐
+```
+┌──────────┐   ┌──────────┐   ┌───────────┐   ┌───────────────┐
+│ drama-new │ → │drama-plan│ → │drama-char │ → │drama-storyboard│ ← 融合模式
+└──────────┘   └──────────┘   └───────────┘   └───────┬───────┘
+                                                      │
+      ┌───────────────────────────────────────────────┘
+      ↓
+┌─────────────────┐   ┌─────────────┐   ┌──────────────┐
+│drama-fill-prompts│ → │drama-review │ → │drama-export  │
+└─────────────────┘   └─────────────┘   └──────────────┘
+```
+
+### 传统模式
 ```
 ┌──────────┐   ┌──────────┐   ┌───────────┐   ┌───────────────┐
 │ drama-new │ → │drama-plan│ → │drama-char │ → │drama-storyboard│
@@ -58,12 +76,35 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 | 分镜 | `/drama-storyboard` | `03_分镜脚本/` + `04_视频提示词/` |
 | 补充 | `/drama-fill-prompts` | 补充报告 + 完整提示词 |
 | 审核 | `/drama-review` | 审核报告 + 修正后的提示词 |
-| 配音 | `/drama-script` | `05_配音台本/` |
-| 导出 | `/drama-export` | `99_导出包/` |
+| 配音 | `/drama-script` | `05_配音台本/`（传统模式） |
+| 迁移 | `/drama-merge-voice` | 融合格式提示词 ⭐ |
+| 导出 | `/drama-export` | `99_导出包/`（融合或传统格式） |
 
 ## 提示词规范
 
-### 视频提示词公式
+### Seedance 2.0 融合格式
+```
+Subject: [主体描述]
+Action: [动作描述]
+Camera: [运镜描述]
+Style: [风格描述]
+
+Voice:
+- 角色：[说话角色]
+- 声音：[声音特点]
+- 台词：「[台词内容]」
+- 情绪：[情绪]
+- 语速：[语速]
+
+Audio:
+- 环境音：[环境声音]
+- 配乐：[配乐风格]
+- 音效：[音效]
+
+Constraints: 口型同步，[时长]
+```
+
+### 传统视频提示词公式
 ```
 [场景描述] + [主体特征与动作] + [视觉风格] + [情绪或氛围] + [镜头语言]
 ```
@@ -71,6 +112,15 @@ allowed-tools: [Read, Write, Edit, Glob, Grep, Bash]
 ### 角色图片提示词公式
 ```
 [人物外貌] + [服装描述] + [表情姿态] + [风格] + [光影]
+```
+
+## 旧版迁移
+
+已有旧版项目（分镜+配音分离）？使用迁移命令：
+
+```bash
+/drama-merge-voice          # 合并所有集数
+/drama-merge-voice 1        # 仅合并第1集
 ```
 
 ## 更多帮助
